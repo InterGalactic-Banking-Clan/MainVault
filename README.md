@@ -1,4 +1,4 @@
 # MainVault
 The Main Vault manages budgets for the IGBC and its customers.
 
-Sharon Torres
+Sharon Torres, Third in Command of the Core Five.
