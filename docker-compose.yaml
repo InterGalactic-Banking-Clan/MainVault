@@ -12,7 +12,7 @@ services:
       # Mount a local directory to persist the database after
       # removal of the container.  Note, actual volume is
       # defined below
-      - main-vault-data:/home/alden/code/supracoders/project2/MainVault/database
+      - main-vault-data
     environment: # Environment variables required by the image
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: main_vault
