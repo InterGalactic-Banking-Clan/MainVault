@@ -1,4 +1,5 @@
 # setup.sql
+
 CREATE DATABASE IF NOT EXISTS `main_vault`;
 CREATE DATABASE IF NOT EXISTS `main_vault_test`;
 
