@@ -1,9 +1,12 @@
 package com.app.MainVault;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
+@Component
 public class User {
 
     @Id
