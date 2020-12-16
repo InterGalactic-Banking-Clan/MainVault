@@ -1,7 +1,6 @@
 package com.app.MainVault;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -12,9 +11,6 @@ public class User {
     private int id;
     private String username;
     private String password;
-
-    @OneToMany(mappedBy = "userId")
-    private List<Transaction> transactions;
 
     public int getId() {
         return id;
