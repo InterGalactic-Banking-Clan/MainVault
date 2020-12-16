@@ -13,7 +13,7 @@ public class User {
     private String username;
     private String password;
 
-    @OneToMany(mappedBy = "userId")
+    @OneToMany/*(mappedBy = "userId")*/
     private List<Transaction> transactions;
 
     public int getId() {
