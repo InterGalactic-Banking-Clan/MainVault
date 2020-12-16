@@ -23,6 +23,9 @@ public class ImportControllerTest {
     @Autowired
     private MockMvc mvc;
 
+    @Autowired
+    private TransactionRepository repository;
+
     @Test
     @Transactional
     public void canImportFile() throws Exception {
