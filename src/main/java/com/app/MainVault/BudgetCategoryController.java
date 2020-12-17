@@ -34,7 +34,7 @@ public class BudgetCategoryController {
         Optional<BudgetCategory> budgetCategory = budgetCategoryRepository.findById(id);
         return budgetCategory.map(response -> ResponseEntity.ok().body(response))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
-    }
+    } //Using ResponseEntity to configure the HTTP response
 
     @PostMapping("/budget/categories")
     ResponseEntity<BudgetCategory> creatingBudgetCategory(@RequestBody BudgetCategory budgetCategory) throws Exception {
