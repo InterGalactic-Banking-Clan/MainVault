@@ -1,6 +1,37 @@
-{
-  "value": 5000,
-  "category": "Auto Repairs",
-  "date": "2003-04-14",
-  "memo": "T-14 hyperdrive generator"
-}
+[
+  {
+    "value": 500000,
+    "budgetCategoryId": 1,
+    "dateCreated": "2020-12-17",
+    "dateTransaction": "2003-04-14",
+    "memo": "T-14 hyperdrive generator"
+  },
+  {
+    "value": 129900,
+    "budgetCategoryId": 2,
+    "dateCreated": "2020-12-17",
+    "dateTransaction": "2020-12-01",
+    "memo": "Netflix Com"
+  },
+  {
+    "value": 502400,
+    "budgetCategoryId": 22,
+    "dateCreated": "2020-12-17",
+    "dateTransaction": "2020-12-01",
+    "memo": "Venmo"
+  },
+  {
+    "value": 1641800,
+    "budgetCategoryId": 22,
+    "dateCreated": "2020-12-16",
+    "dateTransaction": "2020-12-01",
+    "memo": "Protected Goal Account Transfer"
+  },
+  {
+    "value": 373500,
+    "budgetCategoryId": 23,
+    "dateCreated": "2020-12-16",
+    "dateTransaction": "2020-11-29",
+    "memo": "Vons"
+  }
+]
