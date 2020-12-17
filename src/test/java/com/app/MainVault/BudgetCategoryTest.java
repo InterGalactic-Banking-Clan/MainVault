@@ -90,11 +90,12 @@ public class BudgetCategoryTest {
     public void deletingBudgetCategory() throws Exception {
         BudgetCategory budgetCategory = new BudgetCategory();
         User user = new User();
-        user.setId(2);
+        user.setId(6);
         budgetCategory.setUser(user);
-        budgetCategoryRepository.save(budgetCategory);
+        BudgetCategory result = budgetCategoryRepository.save(budgetCategory);
+        String url = "/budget/" + result.getId();
 
-        MockHttpServletRequestBuilder request = delete("/budget/1")
+        MockHttpServletRequestBuilder request = delete(url)
                 .contentType(MediaType.APPLICATION_JSON);
 
         this.mvc.perform(request)
