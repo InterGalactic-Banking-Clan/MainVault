@@ -9,7 +9,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 
 import javax.transaction.Transactional;
-
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -41,6 +40,6 @@ public class ImportControllerTest {
 
     private String getJSON(String path) throws Exception {
         URL url = this.getClass().getResource(path);
-        return new String(Files.readAllBytes(Paths.get(url.getFile())));
+        return new String(Files.readAllBytes(Paths.get(url.toURI())));
     }
 }
