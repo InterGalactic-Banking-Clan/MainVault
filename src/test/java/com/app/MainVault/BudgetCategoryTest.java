@@ -47,7 +47,6 @@ public class BudgetCategoryTest {
     @Transactional
     public void gettingBudgetCatById() throws Exception {
         BudgetCategory budgetCategory = new BudgetCategory();
-        //budgetCategory.setId(1);
         User user = new User();
         user.setId(1);
         budgetCategory.setUser(user);
@@ -64,14 +63,8 @@ public class BudgetCategoryTest {
     @Test
     @Transactional
     public void creatingNewBudgetCategory() throws Exception {
-        BudgetCategory budgetCategory = new BudgetCategory();
-        budgetCategory.setName("Car Loan");
-        User user = new User();
-        user.setId(2);
-        budgetCategory.setUser(user);
-        budgetCategoryRepository.save(budgetCategory);
 
-        MockHttpServletRequestBuilder request = post("/budget/Car Loan")
+        MockHttpServletRequestBuilder request = post("/budget/categories/Car Loan")
                 .contentType(MediaType.APPLICATION_JSON);
 
         this.mvc.perform(request)
@@ -83,12 +76,6 @@ public class BudgetCategoryTest {
     @Test
     @Transactional
     public void updatingBudgetCategory() throws Exception {
-        BudgetCategory budgetCategory = new BudgetCategory();
-        budgetCategory.setMonthlyAllocation(Integer.parseInt("100"));
-        User user = new User();
-        user.setId(2);
-        budgetCategory.setUser(user);
-        budgetCategoryRepository.save(budgetCategory);
 
         MockHttpServletRequestBuilder request = put("/budget/2")
                 .contentType(MediaType.APPLICATION_JSON);
@@ -107,10 +94,16 @@ public class BudgetCategoryTest {
         budgetCategory.setUser(user);
         budgetCategoryRepository.save(budgetCategory);
 
-        MockHttpServletRequestBuilder request = delete("/budget/2")
+        MockHttpServletRequestBuilder request = delete("/budget/1")
                 .contentType(MediaType.APPLICATION_JSON);
 
         this.mvc.perform(request)
+                .andExpect(status().isOk());
+
+        MockHttpServletRequestBuilder request2 = get("/budget/1")
+                .contentType(MediaType.APPLICATION_JSON);
+
+        this.mvc.perform(request2)
                 .andExpect(status().isNotFound());
     }//Testing the ability to delete a budget category; request processing failed
 

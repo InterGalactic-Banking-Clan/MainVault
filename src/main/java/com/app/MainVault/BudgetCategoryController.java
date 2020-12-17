@@ -26,7 +26,7 @@ public class BudgetCategoryController {
     public String listOfBudgetCategories() {
         //return "This GET request is intended to allow the user to customize their budget categories";
         return String.valueOf(budgetCategoryRepository.findAll());
-    } //Intent to list out all categories
+    } //Intent to list out all categories from the budget_categories table
 
     @GetMapping("/budget/{id}")
     ResponseEntity<?> getBudgetCategory(@PathVariable int id) {
@@ -36,23 +36,33 @@ public class BudgetCategoryController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     } //Using ResponseEntity to configure the HTTP response
 
-    @PostMapping("/budget/categories")
-    ResponseEntity<BudgetCategory> creatingBudgetCategory(@RequestBody BudgetCategory budgetCategory) throws Exception {
+    @PostMapping("/budget/categories/{name}")
+    ResponseEntity<BudgetCategory> creatingBudgetCategory(@PathVariable String name) throws Exception {
         //return "This PATCH request allows the user to modify/edit their custom categories";
+        BudgetCategory budgetCategory = new BudgetCategory();
+        User user = new User();
+        user.setId(1);
+        budgetCategory.setUser(user);
+        budgetCategory.setName(name);
         BudgetCategory result = (BudgetCategory) budgetCategoryRepository.save(budgetCategory);
-        return ResponseEntity.created(new URI("/budget/category" + result.getId())).body(result);
-    } //I'm hoping that this will create a budget cat
+        return ResponseEntity.created(new URI("/budget/categories" + result.getId())).body(result);
+    } //I'm hoping that this will create a budget category in the budget_categories table
 
     @PutMapping("/budget/{id}")
-    ResponseEntity<BudgetCategory> updatingBudgetCategory(@RequestBody BudgetCategory budgetCategory) {
+    ResponseEntity<BudgetCategory> updatingBudgetCategory(@PathVariable int id) {
+        BudgetCategory budgetCategory = new BudgetCategory();
+        User user = new User();
+        user.setId(1);
+        budgetCategory.setUser(user);
+        budgetCategory.setMonthlyAllocation(100);
         BudgetCategory result = (BudgetCategory) budgetCategoryRepository.save(budgetCategory);
-        return ResponseEntity.ok().body(result);
-    } //I'm hoping that this will update a budget cat
+        return ResponseEntity.accepted().body(result);
+    } //I'm hoping that this will update a budget category in the budget_categories table
 
     @DeleteMapping("/budget/{id}")
     ResponseEntity<?> deletingBudgetCategory(@PathVariable int id) {
         budgetCategoryRepository.deleteById(id);
         return ResponseEntity.ok().build();
-    } //I'm hoping that this will delete a budget cat
+    } //I'm hoping that this will delete a budget category in the budget_categories tables
 
 }
