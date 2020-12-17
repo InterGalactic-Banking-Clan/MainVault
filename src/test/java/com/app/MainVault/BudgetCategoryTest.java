@@ -101,7 +101,7 @@ public class BudgetCategoryTest {
         this.mvc.perform(request)
                 .andExpect(status().isOk());
 
-        MockHttpServletRequestBuilder request2 = get("/budget/1")
+        MockHttpServletRequestBuilder request2 = get(url)
                 .contentType(MediaType.APPLICATION_JSON);
 
         this.mvc.perform(request2)
