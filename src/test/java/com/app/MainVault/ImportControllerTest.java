@@ -29,7 +29,7 @@ public class ImportControllerTest {
     @Test
     @Transactional
     public void canImportFile() throws Exception {
-        String json = getJSON("/transactionsThreeMonths.json");
+        String json = getJSON("/exampleTransaction.json");
 
         MockHttpServletRequestBuilder request = post("/import")
                 .contentType(MediaType.APPLICATION_JSON)
