@@ -1,10 +1,10 @@
 package com.app.MainVault;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -22,14 +22,31 @@ public class BudgetSummaryController {
     }
 
     @GetMapping("/overall")
-    public Map<String, Integer> getOverall(){
-        int tSum = 0;
-        int bcSum = 0;
+    public Map<String, Integer> getOverall(
+            @RequestParam int user_id){
         Map<String,Integer> ret = new HashMap<>();
-        //ret.put("transactionSum", tRepo.findAll()));
-        //ret.put("budgetSum", bcRepo.findAll()));
+//        ret.put("transactionSum", tRepo.getTransactionSum(user_id));
+//        ret.put("budgetSum", bcRepo.getAllocationSum(user_id));
         return ret;
     }
+
+//    @GetMapping("/${category}")
+//    public Map<String, Integer> getCategorySummary(
+//            @RequestParam int user_id,
+//            @PathVariable String category){
+//        Map<String,Integer> ret = new HashMap<>();
+//        ret.put("transactionSum", tRepo.getTransactionSum(user_id, category));
+//        ret.put("budgetSum", bcRepo.getAllocation(user_id, category));
+//        return ret;
+//    }
+
+//    @GetMapping("/${category}/transactions")
+//    public List<Transaction> getCategoryTransactions(
+//            @RequestParam int user_id,
+//            @PathVariable String category){
+//        List<Transaction> ret = tRepo.getTransactions(user_id, category);
+//        return ret;
+//    }
 
 
 }
