@@ -9,9 +9,16 @@ import java.util.Optional;
 public class TransactionController {
 
     private final TransactionRepository repository;
+    private final UserRepository userRepository;
+    private final User user;
 
-    public TransactionController(TransactionRepository repository){
+    public TransactionController(TransactionRepository repository, UserRepository userRepository) {
         this.repository = repository;
+        this.userRepository = userRepository;
+        this.user = new User();
+        this.user.setUsername("username1");
+        this.user.setPassword("password1");
+        this.userRepository.save(user);
     }
 
     @GetMapping("")
@@ -21,6 +28,7 @@ public class TransactionController {
 
     @PostMapping("")
     public Transaction postTransaction(@RequestBody Transaction transaction){
+        transaction.setUser(user);
         return this.repository.save(transaction);
     }
 
