@@ -40,6 +40,7 @@ public class BudgetCategoryTest {
                 get("/budget")
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON))
+
                 .andExpect(status().isOk());
     }//Checks the status to the server
 
