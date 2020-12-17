@@ -11,11 +11,11 @@ import java.util.Optional;
 @RestController
 public class BudgetCategoryController {
 
-    private final CrudRepository budgetCategoryRepository;
+    private final BudgetCategoryRepository budgetCategoryRepository;
 
-    public BudgetCategoryController(BudgetCategoryRepository budgetCategoryRepository, CrudRepository budgetCategoryRepository1) {
-        super();
-        this.budgetCategoryRepository = budgetCategoryRepository1;
+    public BudgetCategoryController(BudgetCategoryRepository budgetCategoryRepository) {
+        //super();
+        this.budgetCategoryRepository = budgetCategoryRepository;
     }
 //    @GetMapping("/income")
 //    public String listOfIncomeSources() {
@@ -29,7 +29,7 @@ public class BudgetCategoryController {
     } //Intent to list out all categories
 
     @GetMapping("/budget/{id}")
-    ResponseEntity<?> getBudgetCategory(@PathVariable Long id) {
+    ResponseEntity<?> getBudgetCategory(@PathVariable int id) {
         //return "This POST request allows the user to customize their budget categories";
         Optional<BudgetCategory> budgetCategory = budgetCategoryRepository.findById(id);
         return budgetCategory.map(response -> ResponseEntity.ok().body(response))
@@ -50,7 +50,7 @@ public class BudgetCategoryController {
     } //I'm hoping that this will update a budget cat
 
     @DeleteMapping("/budget/{id}")
-    ResponseEntity<?> deletingBudgetCategory(@PathVariable Long id) {
+    ResponseEntity<?> deletingBudgetCategory(@PathVariable int id) {
         budgetCategoryRepository.deleteById(id);
         return ResponseEntity.ok().build();
     } //I'm hoping that this will delete a budget cat
