@@ -13,4 +13,5 @@ public interface BudgetCategoryRepository extends
 
 //    @Query("SELECT monthly_allocation FROM budget_categories WHERE user_id = ?1 AND active = 1 AND budget_category = ?2")
 //    Integer getAllocation(int user_id, String budget_category);
+
 }
