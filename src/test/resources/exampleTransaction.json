@@ -15,21 +15,21 @@
   },
   {
     "value": 502400,
-    "budgetCategoryId": 22,
+    "budgetCategoryId": 3,
     "dateCreated": "2020-12-17",
     "dateTransaction": "2020-12-01",
     "memo": "Venmo"
   },
   {
     "value": 1641800,
-    "budgetCategoryId": 22,
+    "budgetCategoryId": 1,
     "dateCreated": "2020-12-16",
     "dateTransaction": "2020-12-01",
     "memo": "Protected Goal Account Transfer"
   },
   {
     "value": 373500,
-    "budgetCategoryId": 23,
+    "budgetCategoryId": 2,
     "dateCreated": "2020-12-16",
     "dateTransaction": "2020-11-29",
     "memo": "Vons"
