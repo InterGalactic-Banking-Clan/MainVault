@@ -21,7 +21,7 @@ import javax.transaction.Transactional;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class BudgetCategoryTest {
+public class BudgetCategoryControllerTest {
 
     @Autowired
     private MockMvc mvc;
@@ -51,14 +51,15 @@ public class BudgetCategoryTest {
         User user = new User();
         user.setId(1);
         budgetCategory.setUser(user);
-        budgetCategoryRepository.save(budgetCategory);
+        BudgetCategory result = budgetCategoryRepository.save(budgetCategory);
+        String url = "/budget/" + result.getId();
 
-        MockHttpServletRequestBuilder request = get("/budget/1")
+        MockHttpServletRequestBuilder request = get(url)
                 .contentType(MediaType.APPLICATION_JSON);
 
         this.mvc.perform(request)
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id", is(1)));
+                .andExpect(jsonPath("$.id", is(result.getId())));
     }//Testing the ability to get a budget category by it's id
 
     @Test
