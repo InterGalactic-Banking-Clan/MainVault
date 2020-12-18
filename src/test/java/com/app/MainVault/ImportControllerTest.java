@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class ImportControllerTest {
     @Autowired
     private MockMvc mvc;
-
+  
     @Autowired
     private TransactionRepository repository;
 
@@ -41,6 +41,6 @@ public class ImportControllerTest {
 
     private String getJSON(String path) throws Exception {
         URL url = this.getClass().getResource(path);
-        return new String(Files.readAllBytes(Paths.get(url.getFile())));
+        return new String(Files.readAllBytes(Paths.get(url.getURI())));
     }
 }
