@@ -1,7 +1,6 @@
 package com.app.MainVault;
 
 import org.springframework.stereotype.Component;
-
 import javax.persistence.*;
 
 @Entity
@@ -29,6 +28,7 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+        System.out.println("USERNAME Supposedly worked");
     }
 
     public String getPassword() {
@@ -37,5 +37,11 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+        System.out.println("LAST NAME Supposedly worked");
+    }
+
+    @Override
+    public String toString() {
+        return username+password;
     }
 }
