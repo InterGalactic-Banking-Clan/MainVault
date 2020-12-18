@@ -1,5 +1,6 @@
 package com.app.MainVault;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.annotations.OnDelete;
@@ -26,7 +27,9 @@ public class Transaction {
     private User user;
     private int value;
     private int budgetCategoryId;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateCreated;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateTransaction;
     private String memo;
     //private String title;
