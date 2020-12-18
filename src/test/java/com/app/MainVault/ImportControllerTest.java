@@ -22,11 +22,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class ImportControllerTest {
     @Autowired
     private MockMvc mvc;
+  
+    @Autowired
+    private TransactionRepository repository;
 
     @Test
     @Transactional
     public void canImportFile() throws Exception {
-        String json = getJSON("/transactionsThreeMonths.json");
+        String json = getJSON("/exampleTransaction.json");
 
         MockHttpServletRequestBuilder request = post("/import")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -38,6 +41,6 @@ public class ImportControllerTest {
 
     private String getJSON(String path) throws Exception {
         URL url = this.getClass().getResource(path);
-        return new String(Files.readAllBytes(Paths.get(url.getFile())));
+        return new String(Files.readAllBytes(Paths.get(url.getURI())));
     }
 }
