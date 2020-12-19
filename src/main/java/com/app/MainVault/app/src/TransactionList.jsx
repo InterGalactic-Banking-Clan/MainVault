@@ -1,0 +1,33 @@
+import './App.css';
+import React from "react";
+
+class TransactionList extends React.Component {
+  render() {
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th>Memo</th>
+            <th className="transactionInfo">Transaction Date</th>
+            <th className="moneyColumn">Amount</th>
+            <th className="transactionInfo">Budget Category ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.props.Transactions.map(transaction => {
+            return (
+              <tr key={transaction.id}>
+                <td>{transaction.memo}</td>
+                <td className="transactionInfo">{transaction.dateTransaction}</td>
+                <td className="moneyColumn">{this.props.moneyPrint(transaction.value)}</td>
+                <td className="transactionInfo">{transaction.budgetCategoryId}</td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </table>
+    );
+  }
+}
+
+export default TransactionList;
