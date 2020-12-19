@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
+@CrossOrigin(originPatterns = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/summary")
 public class BudgetSummaryController {

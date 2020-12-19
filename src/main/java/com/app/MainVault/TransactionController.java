@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+@CrossOrigin(originPatterns = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/transactions")
 public class TransactionController {
