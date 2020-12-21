@@ -23,9 +23,9 @@ public class BudgetCategoryController {
 //    } Commented out in case we need later
 
     @GetMapping("/budget")
-    public String listOfBudgetCategories() {
+    public Iterable<BudgetCategory> listOfBudgetCategories() {
         //return "This GET request is intended to allow the user to customize their budget categories";
-        return String.valueOf(budgetCategoryRepository.findAll());
+        return budgetCategoryRepository.findAll();
     } //Intent to list out all categories from the budget_categories table
 
     @GetMapping("/budget/{id}")
