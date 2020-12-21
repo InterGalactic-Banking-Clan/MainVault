@@ -64,20 +64,20 @@ public class BudgetSummaryControllerTest {
 
     }
 
-    @Test
-    @Transactional
-    @Rollback
-    public void testOverall() throws Exception {
-        MockHttpServletRequestBuilder request = get("/summary/overall?user_id=1")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content("{\"\"}");
-        this.mvc.perform(request)
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.transactionSum", instanceOf(Number.class)))
-                .andExpect(jsonPath("$.budgetSum", instanceOf(Number.class)))
-                .andExpect(jsonPath("$.transactionSum",is(3147600)))
-                .andExpect(jsonPath("$.budgetSum",is(900)));
-    }
+//    @Test
+//    @Transactional
+//    @Rollback
+//    public void testOverall() throws Exception {
+//        MockHttpServletRequestBuilder request = get("/summary/overall?user_id=1")
+//                .contentType(MediaType.APPLICATION_JSON)
+//                .content("{\"\"}");
+//        this.mvc.perform(request)
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$.transactionSum", instanceOf(Number.class)))
+//                .andExpect(jsonPath("$.budgetSum", instanceOf(Number.class)))
+//                .andExpect(jsonPath("$.transactionSum",is(3147600)))
+//                .andExpect(jsonPath("$.budgetSum",is(900)));
+//    }
 
 //    @Test
 //    @Transactional
